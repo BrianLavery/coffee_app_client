@@ -1,11 +1,19 @@
 .logo-image {
-    background-image: url(/images/logo_cropped.png);
-    background-color: #DDDDDD; /* Used if the image is unavailable */
-    height: 10vh;
+    position: relative;
     max-width: 10%;
 }
 
+.logo-image__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 .logo-image__overlay {
-    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Black see-through */
     width: 100%;
 }
