@@ -1,0 +1,11 @@
+.logo-image {
+    background-image: url(/images/logo_cropped.png);
+    background-color: #DDDDDD; /* Used if the image is unavailable */
+    height: 10vh;
+    max-width: 10%;
+}
+
+.logo-image__overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+}

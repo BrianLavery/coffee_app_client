@@ -1,0 +1,21 @@
+.background-image {
+    background-image: url(/images/coffee_background_large.jpg);
+    background-color: #DDDDDD; /* Used if the image is unavailable */
+    height: 102vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.background-image__overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 102vh;
+    margin-top: -25px;
+}
+
+.background-image__container {
+    background-color: rgba(0,0,0,0);
+    width: 100%;
+    height: 100vh;
+}
