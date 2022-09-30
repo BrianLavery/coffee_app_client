@@ -1,5 +1,5 @@
 import React from 'react';
-import { CssBaseline } from '@mui/material';
+import { CssBaseline, Button } from '@mui/material';
 
 import BackgroundImage from './BackgroundImage';
 import LogoImage from './LogoImage';
@@ -11,8 +11,8 @@ const App = () => {
 			<BackgroundImage>
 				<div style={{ paddingTop: 100 }}>
 					<LogoImage />
-					<img src='/images/logo_cropped.png' alt='Logo' style={{ maxWidth: '10%' }} />
 					<h1 style={{ color: 'white' }}>Thai coffee beans straight from the farmer</h1>
+					<Button variant='contained'>Outlined</Button>
 				</div>
 			</BackgroundImage>
 		</React.Fragment>
