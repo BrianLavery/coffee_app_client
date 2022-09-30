@@ -1,5 +1,5 @@
 .background-image {
-    background-image: url(/images/coffee_background_large.jpg);
+    /* background-image: url(/images/coffee.jpg); */
     background-color: #DDDDDD; /* Used if the image is unavailable */
     height: 102vh;
     background-position: center;

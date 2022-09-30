@@ -1,6 +1,6 @@
 .logo-image {
     position: relative;
-    max-width: 10%;
+    width: 50%;
 }
 
 .logo-image__image {
@@ -15,11 +15,4 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5); /* Black see-through */
     width: 100%;
-}
-
-/* Responsive image width */
-@media only screen and (max-width: 640px) {
-    .logo-image {
-        max-width: 30%;
-    }
 }

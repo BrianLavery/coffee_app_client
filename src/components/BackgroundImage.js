@@ -5,7 +5,11 @@ import './BackgroundImage.css';
 
 const BackgroundImage = ({ children }) => {
 	return (
-		<div className='background-image'>
+		<div
+			className='background-image'
+			style={{
+				backgroundImage: `url(/images/coffee.jpg)`,
+			}}>
 			<div className='background-image__overlay'>
 				<Container maxWidth={false} className='background-image__container'>
 					{children}
