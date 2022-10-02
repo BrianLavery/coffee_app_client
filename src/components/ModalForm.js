@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Box, Typography, Modal } from '@mui/material';
+import { Button, Box, Modal } from '@mui/material';
 
 import MyForm from './MyForm';
 
@@ -8,7 +8,8 @@ const style = {
 	top: '50%',
 	left: '50%',
 	transform: 'translate(-50%, -50%)',
-	width: 400,
+	width: '100%',
+	maxWidth: '500px',
 	bgcolor: 'background.paper',
 	border: '2px solid #000',
 	boxShadow: 24,
@@ -21,7 +22,7 @@ const ModalForm = () => {
 	const handleClose = () => setOpen(false);
 
 	return (
-		<div style={{ marginRight: '40px' }}>
+		<div>
 			<Button onClick={handleOpen}>Open modal</Button>
 			<Modal
 				open={open}

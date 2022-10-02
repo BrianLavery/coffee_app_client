@@ -3,9 +3,12 @@ import { Form } from 'react-final-form';
 import { TextField } from 'mui-rff';
 import { Button, Typography } from '@mui/material';
 
+import api from '../apis/api';
+
 const MyForm = ({ initialValues = { name: '', email: '' } }) => {
 	const onSubmit = async (values) => {
-		console.log('values:', values);
+		const response = await api.get('/api/test');
+		console.log(response.data);
 	};
 
 	const validate = async (values) => {
