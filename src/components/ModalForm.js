@@ -13,7 +13,6 @@ const style = {
 	border: '2px solid #000',
 	boxShadow: 24,
 	p: 4,
-	padding: '8px',
 };
 
 const ModalForm = () => {
@@ -22,7 +21,7 @@ const ModalForm = () => {
 	const handleClose = () => setOpen(false);
 
 	return (
-		<div>
+		<div style={{ marginRight: '40px' }}>
 			<Button onClick={handleOpen}>Open modal</Button>
 			<Modal
 				open={open}
