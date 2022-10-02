@@ -6,6 +6,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import BackgroundImage from './BackgroundImage';
 import LogoImage from './LogoImage';
 import theme from '../themes/theme';
+import ModalForm from './ModalForm';
 
 const App = () => {
 	return (
@@ -56,6 +57,10 @@ const App = () => {
 							<Button size='large' variant='contained'>
 								Pre-Order Now
 							</Button>
+						</Grid>
+
+						<Grid item xs={12} display='flex' justifyContent='center' alignItems='center'>
+							<ModalForm />
 						</Grid>
 					</Grid>
 				</div>
