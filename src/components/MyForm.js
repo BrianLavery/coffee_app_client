@@ -6,8 +6,12 @@ import { Button, Typography } from '@mui/material';
 import api from '../apis/api';
 
 const MyForm = ({ initialValues = { name: '', email: '' } }) => {
+	// const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+	// await sleep(30);
+
 	const onSubmit = async (values) => {
-		const response = await api.get('/api/test');
+		const { name, email } = values;
+		const response = await api.post('/api/user', { name, email });
 		console.log(response.data);
 	};
 
