@@ -54,12 +54,6 @@ const App = () => {
 						<div style={{ width: '100%', marginTop: 40 }}></div>
 
 						<Grid item xs={12} display='flex' justifyContent='center' alignItems='center'>
-							<Button size='large' variant='contained'>
-								Pre-Order Now
-							</Button>
-						</Grid>
-
-						<Grid item xs={12} display='flex' justifyContent='center' alignItems='center'>
 							<ModalForm />
 						</Grid>
 					</Grid>

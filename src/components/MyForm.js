@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form } from 'react-final-form';
 import { TextField } from 'mui-rff';
 import { Button, Typography } from '@mui/material';
 
 import api from '../apis/api';
 
-const MyForm = ({ initialValues = { name: '', email: '' } }) => {
-	// const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-	// await sleep(30);
+const MyForm = ({ initialValues = { name: '', email: '' }, handleClose }) => {
+	const [submitted, setSubmitted] = useState(false);
+	const [submitMessage, setSubmitMessage] = useState('');
 
 	const onSubmit = async (values) => {
-		const { name, email } = values;
-		const response = await api.post('/api/user', { name, email });
-		console.log(response.data);
+		try {
+			const { name, email } = values;
+			const response = await api.post('/api/user', { name, email });
+			setSubmitMessage(response.data.result);
+			setSubmitted(true);
+		} catch (error) {
+			setSubmitMessage('There was an error with your submission');
+		}
 	};
 
 	const validate = async (values) => {
@@ -31,28 +36,38 @@ const MyForm = ({ initialValues = { name: '', email: '' } }) => {
 		return errors;
 	};
 
-	return (
-		<Form
-			onSubmit={onSubmit}
-			initialValues={initialValues}
-			validate={validate}
-			render={({ handleSubmit, submitting }) => (
-				<form onSubmit={handleSubmit} noValidate>
-					<Typography variant='subtitle' style={{ fontWeight: 'bold' }}>
-						Please enter your details to receive a free e-book.
-					</Typography>
+	const renderForm = () => {
+		return submitted ? (
+			<div>
+				<Typography variant='subtitle' style={{ fontWeight: 'bold' }}>
+					{submitMessage}
+				</Typography>
+			</div>
+		) : (
+			<Form
+				onSubmit={onSubmit}
+				initialValues={initialValues}
+				validate={validate}
+				render={({ handleSubmit, submitting }) => (
+					<form onSubmit={handleSubmit} noValidate>
+						<Typography variant='subtitle' style={{ fontWeight: 'bold' }}>
+							Please enter your details to receive a free e-book.
+						</Typography>
 
-					<TextField label='Name' name='name' required={true} margin='normal' />
-					<TextField label='Email' name='email' required={true} margin='normal' />
-					<div style={{ display: 'flex', justifyContent: 'center', marginTop: 4 }}>
-						<Button type='submit' disabled={submitting}>
-							Submit
-						</Button>
-					</div>
-				</form>
-			)}
-		/>
-	);
+						<TextField label='Name' name='name' required={true} margin='normal' />
+						<TextField label='Email' name='email' required={true} margin='normal' />
+						<div style={{ display: 'flex', justifyContent: 'center', marginTop: 4 }}>
+							<Button type='submit' disabled={submitting}>
+								Submit
+							</Button>
+						</div>
+					</form>
+				)}
+			/>
+		);
+	};
+
+	return renderForm();
 };
 
 export default MyForm;

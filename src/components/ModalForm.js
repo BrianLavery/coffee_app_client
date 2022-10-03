@@ -23,14 +23,17 @@ const ModalForm = () => {
 
 	return (
 		<div>
-			<Button onClick={handleOpen}>Open modal</Button>
+			<Button size='large' variant='contained' onClick={handleOpen}>
+				Pre-Order Now
+			</Button>
+
 			<Modal
 				open={open}
 				onClose={handleClose}
 				aria-labelledby='modal-modal-title'
 				aria-describedby='modal-modal-description'>
 				<Box sx={style}>
-					<MyForm />
+					<MyForm handleClose={handleClose} />
 				</Box>
 			</Modal>
 		</div>
