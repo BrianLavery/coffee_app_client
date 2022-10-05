@@ -11,7 +11,7 @@ const BackgroundImage = ({ children }) => {
 				backgroundImage: `url(/images/coffee.jpg)`,
 			}}>
 			<div className='background-image__overlay'>
-				<Container maxWidth={false} className='background-image__container'>
+				<Container maxWidth='xl' className='background-image__container'>
 					{children}
 				</Container>
 			</div>

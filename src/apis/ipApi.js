@@ -1,10 +1,12 @@
 import axios from 'axios';
 
-const api = axios.create({});
+const ipApi = axios.create({
+	baseURL: 'https://geolocation-db.com/json/d802faa0-10bd-11ec-b2fe-47a0872c6708',
+});
 
 // Use below code so that when we get a 401 error when signin with incorrect credentials it does not go to catch statement
 // https://stackoverflow.com/questions/47216452/how-to-handle-401-authentication-error-in-axios-and-react
-api.interceptors.response.use(
+ipApi.interceptors.response.use(
 	(response) => {
 		return response;
 	},
@@ -18,4 +20,4 @@ api.interceptors.response.use(
 	}
 );
 
-export default api;
+export default ipApi;

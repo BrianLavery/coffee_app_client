@@ -3,10 +3,13 @@ import { CssBaseline, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 import { ThemeProvider } from '@mui/material/styles';
 
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
 import BackgroundImage from './BackgroundImage';
 import LogoImage from './LogoImage';
 import theme from '../themes/theme';
-import ModalForm from './ModalForm';
+import FormModal from './FormModal';
 
 const App = () => {
 	return (
@@ -34,16 +37,38 @@ const App = () => {
 
 						<div style={{ width: '100%', marginTop: 40 }}></div>
 
-						<Grid item xs={12} xl={6} xlOffset={3} display='flex' justifyContent='center' alignItems='center'>
+						<Grid
+							item
+							xs={12}
+							md={10}
+							mdOffset={1}
+							lg={8}
+							lgOffset={2}
+							xl={6}
+							xlOffset={3}
+							display='flex'
+							justifyContent='center'
+							alignItems='center'>
 							<Typography variant='h2' style={{ color: 'white', fontWeight: 'bold' }}>
 								Thai coffee beans straight from the farmer
 							</Typography>
 						</Grid>
-						<Grid item xs={0} xl={3} />
+						<Grid item xs={0} md={1} lg={2} xl={3} />
 
 						<div style={{ width: '100%', marginTop: 40 }}></div>
 
-						<Grid item xs={12} xl={6} xlOffset={3} display='flex' justifyContent='center' alignItems='center'>
+						<Grid
+							item
+							xs={12}
+							md={10}
+							mdOffset={1}
+							lg={8}
+							lgOffset={2}
+							xl={6}
+							xlOffset={3}
+							display='flex'
+							justifyContent='center'
+							alignItems='center'>
 							<Typography variant='body1' style={{ color: 'white' }}>
 								Row House is committed to helping you start a rowing-based fitness routine that will improve your health
 								and deliver unparalleled results. Move better, feel better and live better through Row House. BOOK YOUR
@@ -54,7 +79,7 @@ const App = () => {
 						<div style={{ width: '100%', marginTop: 40 }}></div>
 
 						<Grid item xs={12} display='flex' justifyContent='center' alignItems='center'>
-							<ModalForm />
+							<FormModal />
 						</Grid>
 					</Grid>
 				</div>

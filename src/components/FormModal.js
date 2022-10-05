@@ -1,7 +1,9 @@
 import React from 'react';
 import { Button, Box, Modal } from '@mui/material';
 
-import MyForm from './MyForm';
+import UserForm from './UserForm';
+import ipApi from '../apis/ipApi';
+import serverApi from '../apis/serverApi';
 
 const style = {
 	position: 'absolute',
@@ -16,14 +18,30 @@ const style = {
 	p: 4,
 };
 
-const ModalForm = () => {
+const FormModal = () => {
 	const [open, setOpen] = React.useState(false);
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
 
+	const onButtonClick = async () => {
+		handleOpen();
+		const response = await ipApi.get();
+		const { data } = response;
+
+		let [ipAddress, ipCity, ipCountry] = ['unknown', 'unknown', 'unknown'];
+
+		if (data) {
+			ipAddress = data.IPv4;
+			ipCity = data.city;
+			ipCountry = data.country_name;
+		}
+
+		await serverApi.post('/api/click', { ipAddress, ipCity, ipCountry });
+	};
+
 	return (
 		<div>
-			<Button size='large' variant='contained' onClick={handleOpen}>
+			<Button size='large' variant='contained' onClick={onButtonClick}>
 				Pre-Order Now
 			</Button>
 
@@ -33,11 +51,11 @@ const ModalForm = () => {
 				aria-labelledby='modal-modal-title'
 				aria-describedby='modal-modal-description'>
 				<Box sx={style}>
-					<MyForm handleClose={handleClose} />
+					<UserForm handleClose={handleClose} />
 				</Box>
 			</Modal>
 		</div>
 	);
 };
 
-export default ModalForm;
+export default FormModal;

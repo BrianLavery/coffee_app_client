@@ -3,16 +3,16 @@ import { Form } from 'react-final-form';
 import { TextField } from 'mui-rff';
 import { Button, Typography } from '@mui/material';
 
-import api from '../apis/api';
+import serverApi from '../apis/serverApi';
 
-const MyForm = ({ initialValues = { name: '', email: '' }, handleClose }) => {
+const UserForm = ({ initialValues = { name: '', email: '' }, handleClose }) => {
 	const [submitted, setSubmitted] = useState(false);
 	const [submitMessage, setSubmitMessage] = useState('');
 
 	const onSubmit = async (values) => {
 		try {
 			const { name, email } = values;
-			const response = await api.post('/api/user', { name, email });
+			const response = await serverApi.post('/api/user', { name, email });
 			setSubmitMessage(response.data.result);
 			setSubmitted(true);
 		} catch (error) {
@@ -57,8 +57,8 @@ const MyForm = ({ initialValues = { name: '', email: '' }, handleClose }) => {
 						<TextField label='Name' name='name' required={true} margin='normal' />
 						<TextField label='Email' name='email' required={true} margin='normal' />
 						<div style={{ display: 'flex', justifyContent: 'center', marginTop: 4 }}>
-							<Button type='submit' disabled={submitting}>
-								Submit
+							<Button type='submit' size='large' variant='contained' disabled={submitting}>
+								Pre-Order Now
 							</Button>
 						</div>
 					</form>
@@ -70,4 +70,4 @@ const MyForm = ({ initialValues = { name: '', email: '' }, handleClose }) => {
 	return renderForm();
 };
 
-export default MyForm;
+export default UserForm;
