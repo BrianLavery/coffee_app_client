@@ -3,9 +3,6 @@ import { CssBaseline, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 import { ThemeProvider } from '@mui/material/styles';
 
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-
 import BackgroundImage from './BackgroundImage';
 import LogoImage from './LogoImage';
 import theme from '../themes/theme';
