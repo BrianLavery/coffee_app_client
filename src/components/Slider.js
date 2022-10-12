@@ -85,7 +85,7 @@ const Slider = ({ data }) => {
 					justifyContent: 'center',
 					alignItems: 'center',
 				}}>
-				<Typography variant='h6' sx={{ mt: 1, mb: 1 }}>
+				<Typography variant='h6' sx={{ mt: 1, mb: 1, fontWeight: 'bold' }}>
 					{data[activeStep].title}
 				</Typography>
 				<Typography variant='body1' sx={{ mt: 1, mb: 1, fontStyle: 'italic' }}>

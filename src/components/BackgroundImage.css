@@ -1,8 +1,7 @@
 .background-image {
-    /* background-image: url(/images/coffee.jpg); */
-    /* background-color: #DDDDDD; * Used if the image is unavailable */
     background-position: center;
     background-size: cover;
+    background-attachment: fixed;
     background-repeat: repeat-y;
     height: 100vh;
 }
