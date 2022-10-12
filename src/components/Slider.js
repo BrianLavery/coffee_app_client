@@ -3,13 +3,17 @@ import { Box, Typography, Button, MobileStepper } from '@mui/material';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
+import { autoPlay } from 'react-swipeable-views-utils';
+
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const Slider = ({ data }) => {
+	const [activeStep, setActiveStep] = React.useState(0);
+
 	if (!data || data.length === 0) {
 		return null;
 	}
 
-	const [activeStep, setActiveStep] = React.useState(0);
 	const maxSteps = data.length;
 
 	const handleNext = () => {
@@ -20,17 +24,20 @@ const Slider = ({ data }) => {
 		setActiveStep((prevActiveStep) => prevActiveStep - 1);
 	};
 
+	const handleStepChange = (step) => {
+		setActiveStep(step);
+	};
+
 	return (
 		<Box
 			sx={{
-				minWidth: '325px',
-				maxWidth: '95%',
+				width: '600px',
 				border: 1,
 				borderColor: 'grey.300',
 				borderRadius: 2,
 				mb: 3,
 			}}>
-			<SwipeableViews index={activeStep} enableMouseEvents>
+			<AutoPlaySwipeableViews index={activeStep} onChangeIndex={handleStepChange} enableMouseEvents>
 				{data.map((definition, index) =>
 					definition.image_uri ? (
 						<div key={index}>
@@ -49,10 +56,10 @@ const Slider = ({ data }) => {
 							) : null}
 						</div>
 					) : (
-						<div key='index'></div>
+						<div key={index}></div>
 					)
 				)}
-			</SwipeableViews>
+			</AutoPlaySwipeableViews>
 			<Box
 				sx={{
 					width: '100%',

@@ -74,6 +74,15 @@ const App = () => {
 							</Typography>
 						</Grid>
 
+						<Grid item xs={12} display='flex' justifyContent='center' alignItems='center'>
+							<Slider
+								data={[
+									{ category: 'category1', definition: 'definition2', image_uri: '/images/car.jpeg' },
+									{ category: 'category', definition: 'definition', image_uri: '/images/knife.jpeg' },
+								]}
+							/>
+						</Grid>
+
 						<div style={{ width: '100%', marginTop: 40 }}></div>
 
 						<Grid item xs={12} display='flex' justifyContent='center' alignItems='center'>
