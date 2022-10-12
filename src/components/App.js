@@ -7,6 +7,7 @@ import BackgroundImage from './BackgroundImage';
 import LogoImage from './LogoImage';
 import theme from '../themes/theme';
 import FormModal from './FormModal';
+import Slider from './Slider';
 
 const App = () => {
 	return (
