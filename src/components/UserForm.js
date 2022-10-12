@@ -4,15 +4,31 @@ import { TextField } from 'mui-rff';
 import { Button, Typography } from '@mui/material';
 
 import serverApi from '../apis/serverApi';
+import ipApi from '../apis/ipApi';
 
 const UserForm = ({ initialValues = { name: '', email: '' }, handleClose }) => {
 	const [submitted, setSubmitted] = useState(false);
 	const [submitMessage, setSubmitMessage] = useState('');
 
 	const onSubmit = async (values) => {
+		const { name, email } = values;
+		let [ipAddress, ipCity, ipCountry] = ['unknown', 'unknown', 'unknown'];
+
 		try {
-			const { name, email } = values;
-			const response = await serverApi.post('/api/user', { name, email });
+			const response = await ipApi.get();
+			const { data } = response;
+
+			if (data) {
+				ipAddress = data.IPv4;
+				ipCity = data.city;
+				ipCountry = data.country_name;
+			}
+		} catch (error) {
+			console.log(error);
+		}
+
+		try {
+			const response = await serverApi.post('/api/user', { name, email, ipAddress, ipCity, ipCountry });
 			setSubmitMessage(response.data.result);
 			setSubmitted(true);
 		} catch (error) {
@@ -51,7 +67,7 @@ const UserForm = ({ initialValues = { name: '', email: '' }, handleClose }) => {
 				render={({ handleSubmit, submitting }) => (
 					<form onSubmit={handleSubmit} noValidate>
 						<Typography variant='subtitle' style={{ fontWeight: 'bold' }}>
-							Please enter your details to receive a free e-book.
+							Please enter your details to sign up to our limited first pre-order.
 						</Typography>
 
 						<TextField label='Name' name='name' required={true} margin='normal' />

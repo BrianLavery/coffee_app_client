@@ -25,18 +25,27 @@ const FormModal = () => {
 
 	const onButtonClick = async () => {
 		handleOpen();
-		const response = await ipApi.get();
-		const { data } = response;
 
 		let [ipAddress, ipCity, ipCountry] = ['unknown', 'unknown', 'unknown'];
 
-		if (data) {
-			ipAddress = data.IPv4;
-			ipCity = data.city;
-			ipCountry = data.country_name;
+		try {
+			const response = await ipApi.get();
+			const { data } = response;
+
+			if (data) {
+				ipAddress = data.IPv4;
+				ipCity = data.city;
+				ipCountry = data.country_name;
+			}
+		} catch (error) {
+			console.log(error);
 		}
 
-		await serverApi.post('/api/click', { ipAddress, ipCity, ipCountry });
+		try {
+			await serverApi.post('/api/click', { ipAddress, ipCity, ipCountry });
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	return (

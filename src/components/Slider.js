@@ -59,7 +59,7 @@ const Slider = ({ data }) => {
 			<AutoPlaySwipeableViews index={activeStep} onChangeIndex={handleStepChange} interval={5000} enableMouseEvents>
 				{data.map((definition, index) =>
 					definition.image_uri && Math.abs(activeStep - index) <= 2 ? (
-						<div style={{ display: 'flex', justifyContent: 'center' }}>
+						<div key={index} style={{ display: 'flex', justifyContent: 'center' }}>
 							<Box
 								component='img'
 								sx={{
@@ -85,13 +85,13 @@ const Slider = ({ data }) => {
 					justifyContent: 'center',
 					alignItems: 'center',
 				}}>
-				<Typography variant='h6' sx={{ mt: 1, mb: 1, fontWeight: 'bold' }}>
+				<Typography variant='h6' sx={{ mt: 1, mb: 1, fontWeight: 'bold', color: 'white' }}>
 					{data[activeStep].title}
 				</Typography>
-				<Typography variant='body1' sx={{ mt: 1, mb: 1, fontStyle: 'italic' }}>
+				<Typography variant='body1' sx={{ mt: 1, mb: 1, fontStyle: 'italic', color: 'white' }}>
 					{data[activeStep].growerDescription}
 				</Typography>
-				<Typography variant='body1' sx={{ mt: 1, mb: 1, fontStyle: 'italic' }}>
+				<Typography variant='body1' sx={{ mt: 1, mb: 1, fontStyle: 'italic', color: 'white' }}>
 					{data[activeStep].coffeeDescription}
 				</Typography>
 			</Box>
