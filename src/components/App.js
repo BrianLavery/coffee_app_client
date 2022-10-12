@@ -9,12 +9,39 @@ import theme from '../themes/theme';
 import FormModal from './FormModal';
 import Slider from './Slider';
 
+import './App.css';
+
+const CAROUSEL_DATA = [
+	{
+		title: 'Akha Ama Peaberry',
+		growerDescription:
+			'Akha Ama Coffee is a community of social entrepreneurs committed to growing, processing, roasting and brewing a sustainable coffee.',
+		coffeeDescription: 'Black tea , Asian herbs and spices / Sweet and good body with mild fresh stone fruits.',
+		image_uri: '/images/akhaama_peaberry.jpg',
+	},
+	{
+		title: 'Lanna Natural',
+		growerDescription:
+			'Lanna Coffee is passionate about two things; helping the local hill tribes achieve a better life, and offering our customers a specialty product that will never disappoint.',
+		coffeeDescription: 'Bright, floral, juicy and sweet mellow',
+		image_uri: '/images/lanna_natural.jpg',
+	},
+	{
+		title: 'Siam Hills',
+		growerDescription:
+			'Siam Hills Coffee are committed to supporting farmers that grow quality coffee and practice social responsibility as a way of life.',
+		coffeeDescription:
+			'100% Thai beans roasted to a medium roast and flavored with a distinctive blending of caramels and chocolaty, nutty flavors with a hint of faraway tropical vanilla.',
+		image_uri: '/images/siam_hills.png',
+	},
+];
+
 const App = () => {
 	return (
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
 			<BackgroundImage>
-				<div style={{ paddingTop: 100 }}>
+				<div style={{ paddingTop: 60 }}>
 					<Grid container spacing={2}>
 						<Grid
 							item
@@ -31,9 +58,6 @@ const App = () => {
 							alignItems='center'>
 							<LogoImage />
 						</Grid>
-						<Grid item xs={1} sm={3} md={4} lg={5} />
-
-						<div style={{ width: '100%', marginTop: 40 }}></div>
 
 						<Grid
 							item
@@ -46,14 +70,12 @@ const App = () => {
 							xlOffset={3}
 							display='flex'
 							justifyContent='center'
-							alignItems='center'>
-							<Typography variant='h2' style={{ color: 'white', fontWeight: 'bold' }}>
+							alignItems='center'
+							marginTop={2}>
+							<Typography variant='h4' style={{ color: 'white', fontWeight: 'bold' }}>
 								Thai coffee beans straight from the farmer
 							</Typography>
 						</Grid>
-						<Grid item xs={0} md={1} lg={2} xl={3} />
-
-						<div style={{ width: '100%', marginTop: 40 }}></div>
 
 						<Grid
 							item
@@ -65,28 +87,37 @@ const App = () => {
 							xl={6}
 							xlOffset={3}
 							display='flex'
+							flexDirection='column'
 							justifyContent='center'
 							alignItems='center'>
-							<Typography variant='body1' style={{ color: 'white' }}>
-								Row House is committed to helping you start a rowing-based fitness routine that will improve your health
-								and deliver unparalleled results. Move better, feel better and live better through Row House. BOOK YOUR
-								FIRST CLASS and join our community to PULL TOGETHER.
+							<Typography variant='body1' sx={{ color: 'white', my: 1 }}>
+								We source high quality single origin coffee beans from coffee farmers and deliver directly to your
+								doorstep. Currently we are providing access to Thai coffee beans and we are expanding to other markets.
+							</Typography>
+
+							<Typography variant='body1' sx={{ color: 'white', my: 1 }}>
+								We work directly with farmers, so that the money you spend goes to supporting the individuals who who
+								grow the beans that you enjoy and not 'middlemen'.
+							</Typography>
+
+							<Typography variant='body1' sx={{ color: 'white', my: 1 }}>
+								We are launching at the end of 2022, click below to pre-order now and secure a limited spot for the
+								first shipment.
 							</Typography>
 						</Grid>
 
 						<Grid item xs={12} display='flex' justifyContent='center' alignItems='center'>
-							<Slider
-								data={[
-									{ category: 'category1', definition: 'definition2', image_uri: '/images/car.jpeg' },
-									{ category: 'category', definition: 'definition', image_uri: '/images/knife.jpeg' },
-								]}
-							/>
+							<FormModal />
 						</Grid>
 
-						<div style={{ width: '100%', marginTop: 40 }}></div>
+						<Grid item xs={12} display='flex' justifyContent='center' alignItems='center' marginTop={4}>
+							<Typography variant='h5' style={{ color: 'white', fontWeight: 'bold' }}>
+								Thai coffees included in pre-order offer
+							</Typography>
+						</Grid>
 
 						<Grid item xs={12} display='flex' justifyContent='center' alignItems='center'>
-							<FormModal />
+							<Slider data={CAROUSEL_DATA} />
 						</Grid>
 					</Grid>
 				</div>

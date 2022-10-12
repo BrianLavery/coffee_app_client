@@ -32,50 +32,8 @@ const Slider = ({ data }) => {
 		<Box
 			sx={{
 				width: '600px',
-				border: 1,
-				borderColor: 'grey.300',
-				borderRadius: 2,
 				mb: 3,
 			}}>
-			<AutoPlaySwipeableViews index={activeStep} onChangeIndex={handleStepChange} enableMouseEvents>
-				{data.map((definition, index) =>
-					definition.image_uri ? (
-						<div key={index}>
-							{Math.abs(activeStep - index) <= 2 ? (
-								<Box
-									component='img'
-									sx={{
-										height: 255,
-										display: 'block',
-										maxWidth: 400,
-										overflow: 'hidden',
-										width: '100%',
-									}}
-									src={definition.image_uri}
-								/>
-							) : null}
-						</div>
-					) : (
-						<div key={index}></div>
-					)
-				)}
-			</AutoPlaySwipeableViews>
-			<Box
-				sx={{
-					width: '100%',
-					p: 2,
-					display: 'flex',
-					flexDirection: 'column',
-					justifyContent: 'center',
-					alignItems: 'center',
-				}}>
-				<Typography variant='h6' sx={{ marginTop: '16px', marginBottom: '8px' }}>
-					{data[activeStep].definition}
-				</Typography>
-				<Typography variant='body1' sx={{ marginTop: '8px', marginBottom: '16px', fontStyle: 'italic' }}>
-					({data[activeStep].category})
-				</Typography>
-			</Box>
 			<MobileStepper
 				variant='dots'
 				steps={maxSteps}
@@ -85,6 +43,7 @@ const Slider = ({ data }) => {
 					backgroundColor: 'rgba(0,0,0,0)',
 					'.MuiMobileStepper-dot': { backgroundColor: '#CCCCCC' },
 					'.MuiMobileStepper-dotActive': { backgroundColor: '#666666' },
+					mb: 1,
 				}}
 				nextButton={
 					<Button size='small' color='darkgrey' onClick={handleNext} disabled={activeStep === maxSteps - 1}>
@@ -97,6 +56,45 @@ const Slider = ({ data }) => {
 					</Button>
 				}
 			/>
+			<AutoPlaySwipeableViews index={activeStep} onChangeIndex={handleStepChange} interval={5000} enableMouseEvents>
+				{data.map((definition, index) =>
+					definition.image_uri && Math.abs(activeStep - index) <= 2 ? (
+						<div style={{ display: 'flex', justifyContent: 'center' }}>
+							<Box
+								component='img'
+								sx={{
+									display: 'flex',
+									maxHeight: 320,
+									maxWidth: '95%',
+									overflow: 'hidden',
+									backgroundPosition: 'center',
+									backgroundSize: 'cover',
+								}}
+								src={definition.image_uri}
+							/>
+						</div>
+					) : null
+				)}
+			</AutoPlaySwipeableViews>
+			<Box
+				sx={{
+					width: '100%',
+					p: 2,
+					display: 'flex',
+					flexDirection: 'column',
+					justifyContent: 'center',
+					alignItems: 'center',
+				}}>
+				<Typography variant='h6' sx={{ mt: 1, mb: 1 }}>
+					{data[activeStep].title}
+				</Typography>
+				<Typography variant='body1' sx={{ mt: 1, mb: 1, fontStyle: 'italic' }}>
+					{data[activeStep].growerDescription}
+				</Typography>
+				<Typography variant='body1' sx={{ mt: 1, mb: 1, fontStyle: 'italic' }}>
+					{data[activeStep].coffeeDescription}
+				</Typography>
+			</Box>
 		</Box>
 	);
 };
