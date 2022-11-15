@@ -17,7 +17,9 @@ const UserForm = ({ initialValues = { name: '', email: '' }, handleClose }) => {
 	const [submitMessage, setSubmitMessage] = useState('');
 
 	const onSubmit = async (values) => {
-		const { name, email } = values;
+		console.log('values', values);
+
+		const { name, email, coffee, feedback } = values;
 		let [ipAddress, ipCity, ipCountry] = ['unknown', 'unknown', 'unknown'];
 
 		try {
@@ -34,7 +36,15 @@ const UserForm = ({ initialValues = { name: '', email: '' }, handleClose }) => {
 		}
 
 		try {
-			const response = await serverApi.post('/api/user', { name, email, ipAddress, ipCity, ipCountry });
+			const response = await serverApi.post('/api/user', {
+				name,
+				email,
+				coffee,
+				feedback,
+				ipAddress,
+				ipCity,
+				ipCountry,
+			});
 			setSubmitMessage(response.data.result);
 			setSubmitted(true);
 		} catch (error) {
@@ -76,9 +86,9 @@ const UserForm = ({ initialValues = { name: '', email: '' }, handleClose }) => {
 							Please enter your details to sign up to our limited first pre-order.
 						</Typography>
 
-						<TextField label='Name' name='name' required={true} margin='normal' />
-						<TextField label='Email' name='email' required={true} margin='normal' />
-						<Select name={`coffee`} label='Select preferred coffee' formControlProps={{ margin: 'normal' }}>
+						<TextField name='name' label='Name' required={true} margin='normal' />
+						<TextField name='email' label='Email' required={true} margin='normal' />
+						<Select name={`coffee`} label='Select preferred coffee (optional)' formControlProps={{ margin: 'normal' }}>
 							{COFFEE_TYPES.map((coffee, index) => {
 								return (
 									<MenuItem key={index} value={coffee.value}>
@@ -87,6 +97,15 @@ const UserForm = ({ initialValues = { name: '', email: '' }, handleClose }) => {
 								);
 							})}
 						</Select>
+						<TextField
+							name='feedback'
+							label='Comments (optional, 100 character limit)'
+							required={true}
+							margin='normal'
+							inputProps={{
+								maxLength: 100,
+							}}
+						/>
 						<div style={{ display: 'flex', justifyContent: 'center', marginTop: 4 }}>
 							<Button type='submit' size='large' variant='contained' disabled={submitting}>
 								Pre-Order Now
