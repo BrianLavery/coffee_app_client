@@ -91,14 +91,21 @@ const App = () => {
 							alignItems='center'>
 							<Typography variant='body1' sx={{ color: 'white', my: 1 }}>
 								We source high quality single origin coffee beans from coffee farmers and deliver directly to your
-								doorstep. Currently we are providing access to Thai coffee beans and we are expanding to other markets.
+								doorstep.
 							</Typography>
-
 							<Typography variant='body1' sx={{ color: 'white', my: 1 }}>
-								We work directly with farmers, so that the money you spend goes to supporting the individuals who who
-								grow the beans that you enjoy and not 'middlemen'.
+								We work alongside farmers, giving you a unique coffee experience with more knowledge about what you
+								consumer - who grew it and how it got to you. Our approach ensures that the money you spend goes to
+								supporting the individuals who grow the beans that you enjoy.
 							</Typography>
-
+							<Typography variant='body1' sx={{ color: 'white', my: 1 }}>
+								We are currently we are providing access to Thai coffee beans and we are expanding to other markets.
+							</Typography>
+							<Typography variant='body1' sx={{ color: 'white', my: 1 }}>
+								Thailand began growing Arabica beans in the Golden Triangle region as a cash crop to support farmers who
+								previously harvested the Opium plant. It is now established itself as a specialty coffee region known
+								for medium body & acidity with both sweet and nutty tastes.
+							</Typography>
 							<Typography variant='body1' sx={{ color: 'white', my: 1 }}>
 								We are launching at the end of 2022, click below to pre-order now and secure a limited spot for the
 								first shipment.
