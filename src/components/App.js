@@ -13,14 +13,14 @@ import './App.css';
 
 const CAROUSEL_DATA = [
 	{
-		title: 'Akha Ama Peaberry',
+		title: 'Akha Ama - Peaberry',
 		growerDescription:
 			'Akha Ama Coffee is a community of social entrepreneurs committed to growing, processing, roasting and brewing a sustainable coffee.',
 		coffeeDescription: 'Black tea , Asian herbs and spices / Sweet and good body with mild fresh stone fruits.',
 		image_uri: '/images/akhaama_peaberry.jpg',
 	},
 	{
-		title: 'Boncafe All Day Roasted Coffee',
+		title: 'Boncafe - All Day Roasted Coffee',
 		growerDescription:
 			'Boncafe source and roast beans from both the Northern and the Southern regions of Thailand to support local farmers.',
 		coffeeDescription: 'Lightly roasted coffee with delicate and soft tastes - drink at all times of the day',
@@ -31,7 +31,7 @@ const CAROUSEL_DATA = [
 		growerDescription: 'We grow and process beans from our farms in the Northern region of Thailand.',
 		coffeeDescription:
 			'100% Thai beans that smell like caramel mixed with cocoa. Flavoured with a distinctive blending of caramels and chocolaty, nutty flavors with a hint of faraway tropical vanilla.',
-		image_uri: '/images/siam_hills.png',
+		image_uri: '/images/hilltribe.jpg',
 	},
 ];
 

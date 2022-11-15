@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import { Form } from 'react-final-form';
-import { TextField } from 'mui-rff';
-import { Button, Typography } from '@mui/material';
+import { TextField, Select } from 'mui-rff';
+import { Button, Typography, MenuItem } from '@mui/material';
 
 import serverApi from '../apis/serverApi';
 import ipApi from '../apis/ipApi';
+
+const COFFEE_TYPES = [
+	{ value: 'akha_ama', label: 'Akha Ama - Peaberry' },
+	{ value: 'boncafe', label: 'Boncafe - All Day Roasted Coffee' },
+	{ value: 'hilltribe', label: 'Hill Tribe Coffee - Full City Roast' },
+];
 
 const UserForm = ({ initialValues = { name: '', email: '' }, handleClose }) => {
 	const [submitted, setSubmitted] = useState(false);
@@ -72,6 +78,15 @@ const UserForm = ({ initialValues = { name: '', email: '' }, handleClose }) => {
 
 						<TextField label='Name' name='name' required={true} margin='normal' />
 						<TextField label='Email' name='email' required={true} margin='normal' />
+						<Select name={`coffee`} label='Select preferred coffee' formControlProps={{ margin: 'normal' }}>
+							{COFFEE_TYPES.map((coffee, index) => {
+								return (
+									<MenuItem key={index} value={coffee.value}>
+										{coffee.label}
+									</MenuItem>
+								);
+							})}
+						</Select>
 						<div style={{ display: 'flex', justifyContent: 'center', marginTop: 4 }}>
 							<Button type='submit' size='large' variant='contained' disabled={submitting}>
 								Pre-Order Now
