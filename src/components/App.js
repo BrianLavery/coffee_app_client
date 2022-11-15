@@ -20,18 +20,17 @@ const CAROUSEL_DATA = [
 		image_uri: '/images/akhaama_peaberry.jpg',
 	},
 	{
-		title: 'Lanna Natural',
+		title: 'Boncafe All Day Roasted Coffee',
 		growerDescription:
-			'Lanna Coffee is passionate about two things; helping the local hill tribes achieve a better life, and offering our customers a specialty product that will never disappoint.',
-		coffeeDescription: 'Bright, floral, juicy and sweet mellow',
-		image_uri: '/images/lanna_natural.jpg',
+			'Boncafe source and roast beans from both the Northern and the Southern regions of Thailand to support local farmers.',
+		coffeeDescription: 'Lightly roasted coffee with delicate and soft tastes - drink at all times of the day',
+		image_uri: '/images/boncafe.jpg',
 	},
 	{
-		title: 'Siam Hills',
-		growerDescription:
-			'Siam Hills Coffee are committed to supporting farmers that grow quality coffee and practice social responsibility as a way of life.',
+		title: 'Hill Tribe Coffee - Full City Roast',
+		growerDescription: 'We grow and process beans from our farms in the Northern region of Thailand.',
 		coffeeDescription:
-			'100% Thai beans roasted to a medium roast and flavored with a distinctive blending of caramels and chocolaty, nutty flavors with a hint of faraway tropical vanilla.',
+			'100% Thai beans that smell like caramel mixed with cocoa. Flavoured with a distinctive blending of caramels and chocolaty, nutty flavors with a hint of faraway tropical vanilla.',
 		image_uri: '/images/siam_hills.png',
 	},
 ];
