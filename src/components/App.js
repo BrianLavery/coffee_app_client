@@ -72,7 +72,7 @@ const App = () => {
 							alignItems='center'
 							marginTop={2}>
 							<Typography variant='h4' style={{ color: 'white', fontWeight: 'bold' }}>
-								Thai coffee beans straight from the farmer
+								Thai coffee beans direct from the farmer
 							</Typography>
 						</Grid>
 
